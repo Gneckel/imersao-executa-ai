@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt-BR" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google" content="notranslate">
+<title>Imersão EXECUTA.AI · Gabriel Neckel</title>
+<meta name="description" content="Um dia ao vivo para olhar os problemas reais da sua empresa e sair com um caminho de execução usando inteligência artificial. Sábado, 21 de novembro.">
+<meta property="og:title" content="Imersão EXECUTA.AI · Gabriel Neckel">
+<meta property="og:description" content="Um dia ao vivo para olhar os problemas reais da sua empresa e sair com um caminho de execução usando IA.">
+<meta property="og:image" content="img/cerebro-briefing.webp">
+<meta name="theme-color" content="#1B1A17">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B1A17; --ink2:#23211D; --cream:#F1ECE2; --cream2:#E8E2D6;
+  --t-d:#F3EFE7; --g-d:#A39E94; --dim-d:#6E6A62;
+  --t-l:#1C1B18; --g-l:#6F6A61;
+  --green:#3DDC97; --green-l:#11805A; --amber:#E8A54B; --cyan:#5CE1FF;
+  --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --w:1120px;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family:'Inter Tight', -apple-system, 'Helvetica Neue', Arial, sans-serif; background:var(--ink); color:var(--t-d); -webkit-font-smoothing:antialiased; line-height:1.45; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+.wrap{ width:100%; max-width:var(--w); margin:0 auto; padding:0 20px; }
+section{ padding:72px 0; }
+.dark{ background:var(--ink); color:var(--t-d); }
+.light{ background:var(--cream); color:var(--t-l); }
+.mono{ font-family:var(--mono); text-transform:uppercase; letter-spacing:0.16em; font-size:13px; }
+.g{ color:var(--green); } .light .g{ color:var(--green-l); }
+.am{ color:var(--amber); }
+h1,h2,h3{ letter-spacing:-0.035em; line-height:1.02; font-weight:900; text-wrap:balance; }
+h2{ font-size:clamp(34px, 7vw, 64px); }
+p.lead{ font-size:clamp(18px, 2.4vw, 22px); color:var(--g-d); margin-top:16px; max-width:760px; }
+.light p.lead{ color:var(--g-l); }
+
+/* botão */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; background:var(--green); color:#0B1B13; font-weight:800; font-size:19px; letter-spacing:-0.01em; text-decoration:none; padding:18px 28px; border-radius:14px; min-height:58px; transition:transform .15s ease, filter .15s ease; }
+.btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+.btn:active{ transform:translateY(0); }
+.btn.full{ width:100%; }
+.price-note{ margin-top:12px; font-size:16px; color:var(--g-d); }
+.price-note b{ color:var(--t-d); }
+
+/* topo */
+.top{ padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+.top .wrap{ display:flex; justify-content:space-between; align-items:center; }
+.logo{ font-weight:900; letter-spacing:-0.03em; font-size:20px; }
+.logo i{ font-style:normal; color:var(--green); }
+.top .mono{ color:var(--g-d); font-size:12px; }
+
+/* hero */
+.hero{ padding:56px 0 64px; background:radial-gradient(700px 500px at 100% 0%, rgba(232,165,75,0.12), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(61,220,151,0.08), transparent 60%), var(--ink); }
+.hero .tag{ color:var(--amber); }
+.hero h1{ margin-top:14px; font-size:clamp(46px, 11vw, 112px); line-height:0.95; }
+.hero h1 span{ display:block; font-size:0.5em; color:var(--g-d); font-weight:800; letter-spacing:-0.03em; margin-bottom:4px; }
+.hero h1 i{ font-style:normal; color:var(--green); }
+.hero p.lead{ color:var(--t-d); font-size:clamp(20px, 2.8vw, 26px); font-weight:500; }
+.facts{ margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
+.facts span{ font-size:15px; font-weight:600; padding:9px 14px; border-radius:999px; background:rgba(243,239,231,0.07); border:1px solid rgba(243,239,231,0.12); }
+.hero .cta{ margin-top:32px; }
+
+/* faixa */
+.strip{ padding:44px 0; }
+.strip p{ font-size:clamp(26px, 5vw, 44px); font-weight:800; letter-spacing:-0.03em; line-height:1.1; text-wrap:balance; }
+.strip p span{ color:var(--g-l); font-weight:700; }
+
+/* quem */
+.who{ display:grid; grid-template-columns:minmax(0,1fr); gap:36px; align-items:center; }
+.who > *, .days > *, .fit > *, .wall > *, .shots > *{ min-width:0; }
+.who .photo{ border-radius:20px; overflow:hidden; background:#000; aspect-ratio:4/5; }
+.who .photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 15%; filter:brightness(1.12) saturate(0.85); }
+.who h2 span{ color:var(--g-d); }
+.who .txt p{ font-size:19px; color:var(--g-d); margin-top:16px; }
+.who .txt p b{ color:var(--t-d); font-weight:700; }
+.nums{ margin-top:26px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.nums div{ padding:14px 10px; border-radius:14px; background:var(--ink2); border:1px solid rgba(255,255,255,0.07); }
+.nums b{ display:block; font-size:clamp(21px, 6vw, 40px); font-weight:900; letter-spacing:-0.04em; line-height:1; }
+.nums b i{ font-style:normal; color:var(--amber); }
+.nums span{ display:block; margin-top:8px; font-family:var(--mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--g-d); }
+
+/* prova */
+.proof{ text-align:center; }
+.proof .t{ color:var(--g-d); font-weight:700; font-size:16px; }
+.proof .old{ margin-top:22px; font-size:clamp(56px, 13vw, 130px); font-weight:300; letter-spacing:-0.05em; color:#8C877D; line-height:1; }
+.proof .arrow{ font-size:48px; color:var(--green); line-height:1; margin:10px 0; }
+.proof .new{ font-size:clamp(64px, 15vw, 150px); font-weight:900; letter-spacing:-0.055em; color:var(--green); line-height:0.95; }
+.proof .cap{ margin-top:22px; font-size:18px; font-weight:600; }
+.proof small{ display:block; margin-top:8px; font-size:14px; color:var(--dim-d); font-weight:400; }
+
+/* parede */
+.wall{ margin-top:36px; display:grid; gap:28px 32px; }
+.wall div{ border-top:3px solid rgba(28,27,24,0.85); padding-top:16px; }
+.wall i{ font-style:normal; display:block; font-family:var(--mono); font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--green-l); }
+.wall p{ margin-top:8px; font-size:22px; line-height:1.2; font-weight:800; letter-spacing:-0.02em; }
+.wall-f{ margin-top:30px; font-size:18px; color:var(--g-l); }
+.wall-f b{ color:var(--t-l); }
+
+/* cérebro */
+.brain{ background:#0D1114; }
+.brain .tag{ color:var(--cyan); }
+.brain .tag span{ color:#8E9AA0; }
+.brain h2 .c{ color:var(--cyan); }
+.brain .shots{ margin-top:30px; display:grid; gap:16px; }
+.brain .shots img{ border-radius:12px; border:1px solid rgba(92,225,255,0.3); }
+.brain p.lead{ color:#C9CFD2; }
+.brain p.lead b{ color:var(--t-d); }
+
+/* programação */
+.days{ margin-top:34px; display:grid; gap:18px; }
+.day{ border-radius:20px; padding:26px 24px; background:var(--ink2); border:1px solid rgba(255,255,255,0.07); }
+.day .mono{ color:var(--green); }
+.day h3{ font-size:32px; margin-top:8px; }
+.day ul{ list-style:none; margin-top:18px; display:flex; flex-direction:column; gap:16px; }
+.day li{ display:grid; grid-template-columns:28px 1fr; gap:10px; }
+.day li::before{ content:""; width:10px; height:10px; border-radius:50%; background:var(--green); margin-top:9px; }
+.day li b{ display:block; font-size:19px; font-weight:800; letter-spacing:-0.01em; }
+.day li span{ display:block; font-size:16px; color:var(--g-d); margin-top:3px; }
+
+/* método */
+.verbs{ margin-top:30px; display:grid; grid-template-columns:repeat(2,1fr); gap:12px; counter-reset:v; }
+.verbs div{ counter-increment:v; padding:18px 16px; border-radius:14px; background:rgba(28,27,24,0.05); border:1px solid rgba(28,27,24,0.12); font-weight:900; font-size:clamp(17px, 3.6vw, 24px); letter-spacing:-0.02em; }
+.verbs div::before{ content:counter(v, decimal-leading-zero); display:block; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:0.12em; color:var(--green-l); margin-bottom:6px; }
+.method-note{ margin-top:22px; font-size:18px; color:var(--g-l); }
+.method-note b{ color:var(--t-l); }
+
+/* para quem */
+.fit{ margin-top:30px; display:grid; gap:16px; }
+.fit .box{ border-radius:18px; padding:24px 22px; }
+.fit .yes{ background:rgba(61,220,151,0.08); border:1px solid rgba(61,220,151,0.3); }
+.fit .no{ background:rgba(243,239,231,0.04); border:1px solid rgba(243,239,231,0.12); }
+.fit h3{ font-size:24px; }
+.fit ul{ list-style:none; margin-top:14px; display:flex; flex-direction:column; gap:10px; }
+.fit li{ font-size:17px; color:var(--g-d); padding-left:26px; position:relative; }
+.fit .yes li::before{ content:"✓"; position:absolute; left:0; color:var(--green); font-weight:800; }
+.fit .no li::before{ content:"✕"; position:absolute; left:0; color:#C97A5A; font-weight:800; }
+.fit li b{ color:var(--t-d); font-weight:700; }
+
+/* oferta */
+.offer{ background:radial-gradient(700px 500px at 50% 0%, rgba(232,165,75,0.14), transparent 60%), var(--ink); }
+.card{ max-width:620px; margin:0 auto; border-radius:26px; padding:34px 26px; background:var(--ink2); border:1px solid rgba(243,239,231,0.14); text-align:center; }
+.card .mono{ color:var(--amber); }
+.card h2{ font-size:clamp(32px, 7vw, 48px); margin-top:10px; }
+.card h2 i{ font-style:normal; color:var(--green); }
+.card .when{ margin-top:10px; color:var(--g-d); font-size:17px; font-weight:600; }
+.card .price{ margin-top:26px; font-size:clamp(64px, 16vw, 96px); font-weight:900; letter-spacing:-0.05em; line-height:1; }
+.card .price small{ font-size:0.4em; vertical-align:top; position:relative; top:0.35em; margin-right:4px; letter-spacing:-0.02em; }
+.card .inst{ margin-top:8px; font-size:20px; font-weight:700; color:var(--g-d); }
+.card .inst b{ color:var(--t-d); }
+.card ul{ list-style:none; text-align:left; margin:26px 0 28px; display:flex; flex-direction:column; gap:12px; }
+.card li{ font-size:17px; padding-left:28px; position:relative; color:var(--t-d); }
+.card li::before{ content:"✓"; position:absolute; left:0; color:var(--green); font-weight:800; }
+.guar{ margin-top:22px; display:flex; gap:14px; text-align:left; padding:16px; border-radius:14px; background:rgba(61,220,151,0.07); border:1px solid rgba(61,220,151,0.25); }
+.guar .s{ flex:none; width:40px; height:40px; border-radius:50%; background:var(--green); color:#0B1B13; font-weight:900; display:flex; align-items:center; justify-content:center; font-size:20px; }
+.guar p{ font-size:15px; color:var(--g-d); }
+.guar p b{ color:var(--t-d); }
+
+/* faq */
+.faq{ margin-top:28px; display:flex; flex-direction:column; gap:10px; }
+.faq details{ border-radius:14px; background:#fff; border:1px solid rgba(28,27,24,0.1); padding:0 18px; }
+.faq summary{ list-style:none; cursor:pointer; padding:18px 30px 18px 0; font-weight:800; font-size:18px; position:relative; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{ content:"+"; position:absolute; right:0; top:14px; font-size:26px; font-weight:500; color:var(--green-l); }
+.faq details[open] summary::after{ content:"–"; }
+.faq details p{ padding:0 0 18px; font-size:17px; color:var(--g-l); }
+
+/* final */
+.final{ text-align:center; }
+.final h2{ max-width:860px; margin:0 auto; }
+.final p.lead{ margin:16px auto 0; }
+.final .cta{ margin-top:30px; }
+footer{ padding:34px 0 120px; text-align:center; color:var(--dim-d); font-size:14px; border-top:1px solid rgba(255,255,255,0.06); }
+footer a{ color:var(--g-d); font-weight:700; text-decoration:none; }
+
+/* barra fixa no celular */
+.sticky{ position:fixed; left:0; right:0; bottom:0; z-index:20; padding:12px 16px calc(12px + env(safe-area-inset-bottom)); background:rgba(27,26,23,0.94); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-top:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; gap:14px; transform:translateY(110%); transition:transform .25s ease; }
+.sticky.show{ transform:none; }
+.sticky .p{ flex:none; line-height:1.15; }
+.sticky .p b{ display:block; font-size:20px; font-weight:900; letter-spacing:-0.03em; }
+.sticky .p span{ font-size:13px; color:var(--g-d); }
+.sticky .btn{ flex:1; min-height:50px; padding:12px 16px; font-size:17px; }
+
+@media (min-width:760px){
+  section{ padding:104px 0; }
+  .wrap{ padding:0 32px; }
+  .who{ grid-template-columns:420px 1fr; gap:56px; }
+  .wall{ grid-template-columns:repeat(3,1fr); }
+  .brain .shots{ grid-template-columns:1fr 1fr; gap:24px; }
+  .days{ grid-template-columns:1fr 1fr; }
+  .verbs{ grid-template-columns:repeat(3,1fr); }
+  .fit{ grid-template-columns:1fr 1fr; }
+  .card{ padding:44px 44px; }
+  .sticky{ display:none; }
+  footer{ padding-bottom:40px; }
+}
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } .btn, .sticky{ transition:none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo">EXECUTA<i>.AI</i></div>
+    <div class="mono">Sáb · 21/11 · ao vivo</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="tag mono">Imersão · 1 dia · ao vivo · online</div>
+    <h1><span>Imersão</span>EXECUTA<i>.AI</i></h1>
+    <p class="lead">Um dia para olhar os problemas reais da sua empresa e sair com um caminho de execução usando inteligência artificial.</p>
+    <div class="facts"><span>Sábado, 21 de novembro de 2026</span><span>Ao vivo, online</span><span>Turma fundadora</span></div>
+    <div class="cta">
+      <a class="btn" data-pagar href="#oferta">Quero minha vaga</a>
+      <div class="price-note"><b>R$ 997 à vista</b> ou 6x de R$ 166,16</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA -->
+<section class="light strip">
+  <div class="wrap"><p>Não é um dia pra aprender prompt bonitinho. <span>É pra olhar problema real e sair sabendo por onde começar.</span></p></div>
+</section>
+
+<!-- QUEM -->
+<section class="dark" id="quem">
+  <div class="wrap who">
+    <div class="photo"><img src="img/gabriel.jpg" alt="Gabriel Neckel" loading="lazy"></div>
+    <div class="txt">
+      <div class="mono am">Quem conduz</div>
+      <h2 style="margin-top:12px">Gabriel Neckel. <span>Empresário. Não programador.</span></h2>
+      <p>Eu cresci dentro de uma empresa familiar e hoje participo de uma operação grande, cheia de processo, planilha e conferência manual.</p>
+      <p>Há cerca de um ano e meio eu uso inteligência artificial todos os dias para <b>resolver os problemas da minha própria operação</b>: e fui construindo os sistemas que hoje rodam lá dentro.</p>
+      <div class="nums">
+        <div><b>350<i>+</i></b><span>colaboradores</span></div>
+        <div><b>12</b><span>unidades</span></div>
+        <div><b>2.000<i>+</i></b><span>notas por mês</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA -->
+<section class="dark proof" style="padding-top:0">
+  <div class="wrap">
+    <div class="t">QUANDO A IA SAI DO CHAT E ENTRA NA OPERAÇÃO</div>
+    <div class="old">≈ 5 horas</div>
+    <div class="arrow">↓</div>
+    <div class="new">≈ 30 min</div>
+    <div class="cap">Fechamento de caixa · sistema que eu construí com IA</div>
+    <small>Estimativa operacional desse processo. Um exemplo real, não uma promessa.</small>
+  </div>
+</section>
+
+<!-- PAREDE -->
+<section class="light">
+  <div class="wrap">
+    <h2>Depois que eu fiz esse…</h2>
+    <p class="lead">Comecei a olhar pra tudo dentro da empresa e perguntar: isso aqui precisa continuar desse jeito?</p>
+    <div class="wall">
+      <div><i>Refeições</i><p>Lê o PDF do governo e confere as quantidades.</p></div>
+      <div><i>Fiscal</i><p>A nota fiscal chega sozinha e vira conta a pagar.</p></div>
+      <div><i>Compras</i><p>Lê o cardápio do mês e monta a lista de compras.</p></div>
+      <div><i>Rastreabilidade</i><p>QR code em cada pacote de carne.</p></div>
+      <div><i>Cartões</i><p>Confere o que a maquininha pagou com o que devia pagar.</p></div>
+      <div><i>RH</i><p>Avisa documento e férias vencendo antes de virar problema.</p></div>
+    </div>
+    <p class="wall-f">Na imersão eu abro os bastidores de como isso foi feito. E a aprovação <b>continua humana</b>.</p>
+  </div>
+</section>
+
+<!-- CÉREBRO -->
+<section class="dark brain">
+  <div class="wrap">
+    <div class="tag mono">Cérebro NK·II <span>· em construção · telas com dados de exemplo</span></div>
+    <h2 style="margin-top:12px">Um sócio que <span class="c">nunca dorme.</span></h2>
+    <div class="shots">
+      <img src="img/cerebro-nucleo.webp" alt="Cérebro: central de comando por voz" loading="lazy">
+      <img src="img/cerebro-briefing.webp" alt="Cérebro: briefing da manhã" loading="lazy">
+    </div>
+    <p class="lead">Uma central por voz que junta caixa, notas, RH e operação num lugar só. Ele vê o que importa, me avisa e prepara a ação, <b>mas só faz alguma coisa com o meu OK.</b></p>
+  </div>
+</section>
+
+<!-- PROGRAMAÇÃO -->
+<section class="dark" id="programa">
+  <div class="wrap">
+    <div class="mono am">O que vai acontecer no dia</div>
+    <h2 style="margin-top:12px">Manhã pra enxergar. Tarde pra executar.</h2>
+    <div class="days">
+      <div class="day">
+        <div class="mono">Manhã</div><h3>ENXERGAR</h3>
+        <ul>
+          <li><div><b>Os bastidores dos meus sistemas</b><span>Como cada solução nasceu, o que deu errado e o que funcionou.</span></div></li>
+          <li><div><b>Diagnóstico da sua empresa</b><span>Onde estão o tempo, o dinheiro e o retrabalho que ninguém vê.</span></div></li>
+          <li><div><b>Seu primeiro problema escolhido</b><span>Qual atacar primeiro, e por quê.</span></div></li>
+        </ul>
+      </div>
+      <div class="day">
+        <div class="mono">Tarde</div><h3>EXECUTAR</h3>
+        <ul>
+          <li><div><b>Como a IA entende a sua empresa</b><span>Contexto vale mais que prompt perfeito.</span></div></li>
+          <li><div><b>Eu construo ao vivo, do zero</b><span>Do problema a uma solução funcionando, na sua frente.</span></div></li>
+          <li><div><b>Seu plano de 30 dias</b><span>Você sai sabendo o próximo passo do seu primeiro caso.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="light">
+  <div class="wrap">
+    <div class="mono" style="color:var(--green-l)">O caminho que eu repito em todo projeto</div>
+    <h2 style="margin-top:12px">Método EXECUTA<span class="g">.AI</span></h2>
+    <div class="verbs"><div>Diagnosticar</div><div>Contextualizar</div><div>Questionar</div><div>Executar</div><div>Validar</div><div>Evoluir</div></div>
+    <p class="method-note">A IA ensina, questiona e executa. <b>Você continua sendo o responsável.</b></p>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="dark">
+  <div class="wrap">
+    <h2>É pra você?</h2>
+    <div class="fit">
+      <div class="box yes"><h3>É pra você se…</h3><ul>
+        <li>Você é <b>empresário ou gestor</b> e tem processo que ainda depende de planilha, conferência manual ou de uma pessoa só.</li>
+        <li>Você já usa ChatGPT, mas <b>sua empresa continua funcionando igual</b>.</li>
+        <li>Você quer entender o que dá pra fazer com IA <b>na sua operação</b>, não na teoria.</li>
+      </ul></div>
+      <div class="box no"><h3>Não é pra você se…</h3><ul>
+        <li>Você procura uma lista de prompts prontos.</li>
+        <li>Você espera automatizar a empresa inteira em um dia.</li>
+        <li>Você quer só aprender sobre ferramentas, sem olhar para um problema real.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="offer" id="oferta">
+  <div class="wrap">
+    <div class="card">
+      <div class="mono">Turma fundadora</div>
+      <h2>Imersão EXECUTA<i>.AI</i></h2>
+      <div class="when">Sábado, 21 de novembro de 2026 · ao vivo, online</div>
+      <div class="price"><small>R$</small>997</div>
+      <div class="inst">à vista ou <b>6x de R$ 166,16</b></div>
+      <ul>
+        <li>1 dia inteiro ao vivo comigo</li>
+        <li>Os bastidores dos sistemas que rodam na minha operação</li>
+        <li>Diagnóstico da sua empresa e escolha do seu primeiro problema</li>
+        <li>Construção ao vivo, do problema à solução</li>
+        <li>Seu plano de 30 dias para o primeiro caso</li>
+      </ul>
+      <a class="btn full" data-pagar href="#oferta">Garantir minha vaga</a>
+      <div class="guar"><div class="s">✓</div><p><b>Garantia até o almoço.</b> Se até o intervalo do almoço você achar que não faz sentido pra você, eu devolvo 100% do valor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="light">
+  <div class="wrap">
+    <h2>Perguntas</h2>
+    <div class="faq">
+      <details><summary>Preciso saber programar?</summary><p>Não. Eu também não sou programador. A imersão é sobre olhar problema real e conduzir a IA até uma solução.</p></details>
+      <details><summary>Preciso já usar alguma ferramenta de IA?</summary><p>Não. Basta um computador com internet. Eu mostro as ferramentas que uso no dia a dia e você decide se e quando usar.</p></details>
+      <details><summary>Serve para empresa pequena?</summary><p>Sim, desde que ela tenha algum processo manual, repetitivo ou dependente de planilha. É aí que a gente começa.</p></details>
+      <details><summary>Vou sair com tudo automatizado?</summary><p>Não, e eu não vou te prometer isso. Você sai sabendo qual problema atacar primeiro, como fazer e qual é o próximo passo.</p></details>
+      <details><summary>Como recebo o acesso?</summary><p>Depois da inscrição, você recebe as informações de acesso da imersão.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Garantia até o almoço: se até o intervalo do almoço você achar que não faz sentido, devolvo 100% do valor.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="dark final">
+  <div class="wrap">
+    <h2>Qual problema você já aceitou que não consegue resolver?</h2>
+    <p class="lead">O problema começa a mudar quando você para de aceitar que não consegue.</p>
+    <div class="cta">
+      <a class="btn" data-pagar href="#oferta">Quero minha vaga</a>
+      <div class="price-note"><b>R$ 997 à vista</b> ou 6x de R$ 166,16</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Gabriel Neckel · <a href="https://www.instagram.com/gabriel_neckell/" target="_blank" rel="noopener">@gabriel_neckell</a></div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <div class="p"><b>R$ 997</b><span>ou 6x de R$ 166,16</span></div>
+  <a class="btn" data-pagar href="#oferta">Quero minha vaga</a>
+</div>
+
+<script>
+  // >>> COLOQUE AQUI O LINK DO PAGAMENTO (entre as aspas). Todos os botões passam a usar ele. <<<
+  var LINK_PAGAMENTO = "";
+
+  if (LINK_PAGAMENTO) {
+    document.querySelectorAll('[data-pagar]').forEach(function (a) {
+      a.href = LINK_PAGAMENTO;
+      a.rel = 'noopener';
+    });
+  }
+  // barra de compra fixa no celular: aparece depois do topo e some quando o card da oferta está na tela
+  (function () {
+    var bar = document.getElementById('sticky'), hero = document.querySelector('.hero'), oferta = document.getElementById('oferta');
+    if (!('IntersectionObserver' in window)) { bar.classList.add('show'); return; }
+    var heroVis = true, ofertaVis = false;
+    function upd(){ bar.classList.toggle('show', !heroVis && !ofertaVis); }
+    new IntersectionObserver(function (e) { heroVis = e[0].isIntersecting; upd(); }).observe(hero);
+    new IntersectionObserver(function (e) { ofertaVis = e[0].isIntersecting; upd(); }).observe(oferta);
+  })();
+</script>
+</body>
+</html>
