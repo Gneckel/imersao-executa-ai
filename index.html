@@ -30,6 +30,7 @@ a{ color:inherit; }
 .wrap{ width:100%; max-width:var(--w); margin:0 auto; padding:0 20px; }
 section{ padding:72px 0; }
 .dark{ background:var(--ink); color:var(--t-d); }
+section.dark + section.dark:not(.proof), section.brain + section.dark{ border-top:1px solid rgba(255,255,255,0.07); }
 .light{ background:var(--cream); color:var(--t-l); }
 .mono{ font-family:var(--mono); text-transform:uppercase; letter-spacing:0.16em; font-size:13px; }
 .g{ color:var(--green); } .light .g{ color:var(--green-l); }
@@ -64,6 +65,7 @@ p.lead{ font-size:clamp(18px, 2.4vw, 22px); color:var(--g-d); margin-top:16px; m
 .facts{ margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
 .facts span{ font-size:15px; font-weight:600; padding:9px 14px; border-radius:999px; background:rgba(243,239,231,0.07); border:1px solid rgba(243,239,231,0.12); }
 .hero .cta{ margin-top:32px; }
+.hero-x{ margin-top:18px; font-size:17px; color:var(--g-d); max-width:640px; }
 
 /* faixa */
 .strip{ padding:44px 0; }
@@ -73,8 +75,8 @@ p.lead{ font-size:clamp(18px, 2.4vw, 22px); color:var(--g-d); margin-top:16px; m
 /* quem */
 .who{ display:grid; grid-template-columns:minmax(0,1fr); gap:36px; align-items:center; }
 .who > *, .days > *, .fit > *, .wall > *, .shots > *{ min-width:0; }
-.who .photo{ border-radius:20px; overflow:hidden; background:#000; aspect-ratio:4/5; }
-.who .photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 15%; filter:brightness(1.12) saturate(0.85); }
+.who .photo{ border-radius:20px; overflow:hidden; background:#000; aspect-ratio:1/1; }
+.who .photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 20%; filter:brightness(1.12) saturate(0.85); }
 .who h2 span{ color:var(--g-d); }
 .who .txt p{ font-size:19px; color:var(--g-d); margin-top:16px; }
 .who .txt p b{ color:var(--t-d); font-weight:700; }
@@ -189,6 +191,7 @@ footer a{ color:var(--g-d); font-weight:700; text-decoration:none; }
   section{ padding:104px 0; }
   .wrap{ padding:0 32px; }
   .who{ grid-template-columns:420px 1fr; gap:56px; }
+  .who .photo{ aspect-ratio:4/5; }
   .wall{ grid-template-columns:repeat(3,1fr); }
   .brain .shots{ grid-template-columns:1fr 1fr; gap:24px; }
   .days{ grid-template-columns:1fr 1fr; }
@@ -216,17 +219,13 @@ footer a{ color:var(--g-d); font-weight:700; text-decoration:none; }
     <div class="tag mono">Imersão · 1 dia · ao vivo · online</div>
     <h1><span>Imersão</span>EXECUTA<i>.AI</i></h1>
     <p class="lead">Um dia para olhar problemas reais (da sua empresa, do seu trabalho ou do seu dia a dia) e sair com um caminho de execução usando inteligência artificial.</p>
+    <p class="hero-x">Não é um dia pra aprender prompt bonitinho. É pra olhar problema real e sair sabendo por onde começar.</p>
     <div class="facts"><span>Sábado, 21 de novembro de 2026</span><span>Ao vivo, online</span><span>Turma fundadora</span></div>
     <div class="cta">
       <a class="btn" data-pagar href="#oferta">Quero minha vaga</a>
       <div class="price-note"><b>R$ 997 à vista</b> ou 6x de R$ 166,16</div>
     </div>
   </div>
-</section>
-
-<!-- FAIXA -->
-<section class="light strip">
-  <div class="wrap"><p>Não é um dia pra aprender prompt bonitinho. <span>É pra olhar problema real e sair sabendo por onde começar.</span></p></div>
 </section>
 
 <!-- QUEM -->
@@ -236,8 +235,7 @@ footer a{ color:var(--g-d); font-weight:700; text-decoration:none; }
     <div class="txt">
       <div class="mono am">Quem conduz</div>
       <h2 style="margin-top:12px">Gabriel Neckel. <span>Empresário. Não programador.</span></h2>
-      <p>Eu cresci dentro de uma empresa familiar e hoje participo de uma operação grande, cheia de processo, planilha e conferência manual.</p>
-      <p>Há cerca de um ano e meio eu uso inteligência artificial todos os dias para <b>resolver os problemas da minha própria operação</b>: e fui construindo os sistemas que hoje rodam lá dentro.</p>
+      <p>Há cerca de um ano e meio eu uso inteligência artificial todos os dias para <b>resolver os problemas da minha própria operação</b>, e fui construindo com IA os sistemas que hoje rodam lá dentro.</p>
       <div class="nums">
         <div><b>350<i>+</i></b><span>colaboradores</span></div>
         <div><b>12</b><span>unidades</span></div>
@@ -256,23 +254,6 @@ footer a{ color:var(--g-d); font-weight:700; text-decoration:none; }
     <div class="new">≈ 30 min</div>
     <div class="cap">Fechamento de caixa · sistema que eu construí com IA</div>
     <small>Estimativa operacional desse processo. Um exemplo real, não uma promessa.</small>
-  </div>
-</section>
-
-<!-- PAREDE -->
-<section class="light">
-  <div class="wrap">
-    <h2>Depois que eu fiz esse…</h2>
-    <p class="lead">Comecei a olhar pra tudo dentro da empresa e perguntar: isso aqui precisa continuar desse jeito?</p>
-    <div class="wall">
-      <div><i>Refeições</i><p>Lê o PDF do governo e confere as quantidades.</p></div>
-      <div><i>Fiscal</i><p>A nota fiscal chega sozinha e vira conta a pagar.</p></div>
-      <div><i>Compras</i><p>Lê o cardápio do mês e monta a lista de compras.</p></div>
-      <div><i>Rastreabilidade</i><p>QR code em cada pacote de carne.</p></div>
-      <div><i>Cartões</i><p>Confere o que a maquininha pagou com o que devia pagar.</p></div>
-      <div><i>RH</i><p>Avisa documento e férias vencendo antes de virar problema.</p></div>
-    </div>
-    <p class="wall-f">Na imersão eu abro os bastidores de como isso foi feito. E a aprovação <b>continua humana</b>.</p>
   </div>
 </section>
 
@@ -312,16 +293,6 @@ footer a{ color:var(--g-d); font-weight:700; text-decoration:none; }
         </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- MÉTODO -->
-<section class="light">
-  <div class="wrap">
-    <div class="mono" style="color:var(--green-l)">O caminho que eu repito em todo projeto</div>
-    <h2 style="margin-top:12px">Método EXECUTA<span class="g">.AI</span></h2>
-    <div class="verbs"><div>Diagnosticar</div><div>Contextualizar</div><div>Questionar</div><div>Executar</div><div>Validar</div><div>Evoluir</div></div>
-    <p class="method-note">A IA ensina, questiona e executa. <b>Você continua sendo o responsável.</b></p>
   </div>
 </section>
 
@@ -373,9 +344,7 @@ footer a{ color:var(--g-d); font-weight:700; text-decoration:none; }
     <h2>Perguntas</h2>
     <div class="faq">
       <details><summary>Preciso saber programar?</summary><p>Não. Eu também não sou programador. A imersão é sobre olhar problema real e conduzir a IA até uma solução.</p></details>
-      <details><summary>Preciso já usar alguma ferramenta de IA?</summary><p>Não. Basta um computador com internet. Eu mostro as ferramentas que uso no dia a dia e você decide se e quando usar.</p></details>
       <details><summary>Preciso ter uma empresa?</summary><p>Não. Se você tem empresa, a gente olha os processos dela. Se não tem, você traz um problema do seu trabalho ou do seu dia a dia. O caminho é o mesmo: entender o problema, fazer a IA entender o contexto e executar.</p></details>
-      <details><summary>Serve para empresa pequena?</summary><p>Sim. Toda empresa, de qualquer tamanho, tem algum processo manual, repetitivo ou dependente de planilha. É por aí que a gente começa.</p></details>
       <details><summary>Vou sair com tudo automatizado?</summary><p>Não, e eu não vou te prometer isso. Você sai sabendo qual problema atacar primeiro, como fazer e qual é o próximo passo.</p></details>
       <details><summary>Como recebo o acesso?</summary><p>Depois da inscrição, você recebe as informações de acesso da imersão.</p></details>
       <details><summary>E se eu não gostar?</summary><p>Garantia até o almoço: se até o intervalo do almoço você achar que não faz sentido, devolvo 100% do valor.</p></details>
